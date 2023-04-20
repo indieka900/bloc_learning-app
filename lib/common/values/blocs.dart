@@ -2,8 +2,8 @@ import 'package:bloc_app/pages/application/bloc/application_bloc.dart';
 import 'package:bloc_app/pages/register/bloc/register_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'sign_in/bloc/sign_in_bloc.dart';
-import 'welcome/bloc/welcome_bloc.dart';
+import '../../pages/sign_in/bloc/sign_in_bloc.dart';
+import '../../pages/welcome/bloc/welcome_bloc.dart';
 
 class AppBlocsProvider {
   static get allBlocProviders => [

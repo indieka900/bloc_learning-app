@@ -1,9 +1,5 @@
-import 'package:bloc_app/pages/sign_in/sign_in_controller.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../common/values/imports.dart';
 
-import '../common_widgets.dart';
 import 'bloc/sign_in_bloc.dart';
 
 class SignIn extends StatelessWidget {

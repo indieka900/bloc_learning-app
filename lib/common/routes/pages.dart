@@ -2,15 +2,7 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-import 'package:bloc_app/common/routes/names.dart';
-import 'package:bloc_app/global.dart';
-import 'package:bloc_app/pages/application/application.dart';
-import 'package:bloc_app/pages/register/register.dart';
-import 'package:bloc_app/pages/sign_in/sign_in.dart';
-import 'package:flutter/material.dart';
-
-import '../../pages/blocs.dart';
-import '../../pages/welcome/welcome.dart';
+import '../values/imports.dart';
 
 class AppPages {
   static List<PageEntity> Routes() {

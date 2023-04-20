@@ -1,6 +1,4 @@
-import 'package:bloc_app/common/values/colors.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../common/values/imports.dart';
 
 AppBar buildAppBar(String type) {
   return AppBar(

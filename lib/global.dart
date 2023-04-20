@@ -1,6 +1,4 @@
-import 'package:bloc_app/common/service/storage_service.dart';
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'common/values/imports.dart';
 
 class Global {
   static late StorageService storageService;

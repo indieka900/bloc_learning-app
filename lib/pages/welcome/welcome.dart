@@ -1,11 +1,4 @@
-import 'package:bloc_app/common/values/colors.dart';
-import 'package:bloc_app/common/values/constants.dart';
-import 'package:bloc_app/global.dart';
-import 'package:dots_indicator/dots_indicator.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../../common/values/imports.dart';
 import 'bloc/welcome_bloc.dart';
 
 class WelcomePage extends StatelessWidget {

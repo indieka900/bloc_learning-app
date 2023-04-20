@@ -1,8 +1,6 @@
-import 'package:bloc_app/common/widgets/flutter_toast.dart';
 import 'package:bloc_app/pages/register/bloc/register_bloc.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
+import '../../common/values/imports.dart';
 
 class RegisterController {
   final BuildContext context;
