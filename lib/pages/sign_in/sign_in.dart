@@ -59,6 +59,7 @@ class SignIn extends StatelessWidget {
                       ),
                     ),
                     forgotpassword(),
+                    SizedBox(height: 70.h),
                     buildLogInAndRegButton('Login', 'Login', () {
                       SignInController(context: context).handleSignIn('email');
                     }),

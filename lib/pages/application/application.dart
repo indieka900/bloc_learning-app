@@ -14,7 +14,7 @@ class Applicationpage extends StatelessWidget {
           color: AppColors.primarySecondaryBackground,
           child: SafeArea(
             child: Scaffold(
-              appBar: AppBar(),
+              // appBar: AppBar(),
               body: buildPage(state.index),
               bottomNavigationBar: Container(
                 width: 375.w,

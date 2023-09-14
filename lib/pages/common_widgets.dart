@@ -26,6 +26,8 @@ Widget buldthirdpartylogin(BuildContext context) {
     child: Container(
       margin: EdgeInsets.only(
         top: 40.h,
+        left: 50.w,
+        right: 50.w,
         bottom: 20.h,
       ),
       padding: EdgeInsets.symmetric(horizontal: 50.h),

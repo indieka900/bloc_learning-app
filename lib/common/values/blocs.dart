@@ -1,4 +1,5 @@
 import 'package:bloc_app/pages/application/bloc/application_bloc.dart';
+import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 import 'package:bloc_app/pages/register/bloc/register_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,5 +12,6 @@ class AppBlocsProvider {
         BlocProvider(create: (context) => SignInBloc()),
         BlocProvider(create: (context) => RegisterBloc()),
         BlocProvider(create: (context) => ApplicationBloc()),
+        BlocProvider(create: (context) => HomePageBloc()),
       ];
 }

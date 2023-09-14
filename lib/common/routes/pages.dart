@@ -2,6 +2,8 @@
 
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:bloc_app/pages/home/home_page.dart';
+
 import '../values/imports.dart';
 
 class AppPages {
@@ -28,6 +30,11 @@ class AppPages {
         route: AppRoutes.APPLICATION,
         page: const Applicationpage(),
         bloc: AppBlocsProvider.allBlocProviders[3],
+      ),
+      PageEntity(
+        route: AppRoutes.HOMEPAGE,
+        page: const Homepage(),
+        bloc: AppBlocsProvider.allBlocProviders[4],
       ),
     ];
   }

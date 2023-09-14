@@ -27,7 +27,7 @@ class Register extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 35.h),
+                      margin: EdgeInsets.only(top: 60.h),
                       padding: EdgeInsets.only(left: 25.w, right: 25.w),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
