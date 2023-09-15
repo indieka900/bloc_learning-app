@@ -1,23 +1,29 @@
 import 'dart:ui';
 
 class AppColors {
-  
   /// white background
   static const Color primaryBackground = Color.fromARGB(255, 255, 255, 255);
+
   /// grey background
-  static const Color primarySecondaryBackground = Color.fromARGB(255, 247, 247, 249);
+  static const Color primarySecondaryBackground =
+      Color.fromARGB(255, 247, 247, 249);
+
   /// main widget color blue
   static const Color primaryElement = Color.fromARGB(255, 61, 61, 216);
+
   /// main text color black
   static const Color primaryText = Color.fromARGB(255, 0, 0, 0);
   // video backgroun color
   static const Color primarybg = Color.fromARGB(210, 32, 47, 62);
+
   /// main widget text color white
   static const Color primaryElementText = Color.fromARGB(255, 255, 255, 255);
   // main widget text color grey
-  static const Color primarySecondaryElementText = Color.fromARGB(255, 102, 102, 102);
+  static const Color primarySecondaryElementText =
+      Color.fromARGB(255, 102, 102, 102);
   // main widget third color grey
-  static const Color primaryThreeElementText = Color.fromARGB(255, 170, 170, 170);
+  static const Color primaryThreeElementText =
+      Color.fromARGB(255, 170, 170, 170);
 
   static const Color primaryFourElementText = Color.fromRGBO(96, 125, 139, 1);
   //state color
@@ -25,5 +31,5 @@ class AppColors {
 
   static const Color primaryElementBg = Color.fromARGB(255, 238, 121, 99);
 
-
+  static const Color primaryForthElement = Color.fromARGB(255, 231, 229, 229);
 }

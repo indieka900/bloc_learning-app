@@ -46,11 +46,8 @@ class _HomepageState extends State<Homepage> {
                       childCount: 4,
                       (context, index) {
                         return GestureDetector(
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            color: Colors.red,
-                          ),
+                          onTap: () {},
+                          child: courseGrid(),
                         );
                       },
                     ),
