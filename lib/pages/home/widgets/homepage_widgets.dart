@@ -150,18 +150,16 @@ Widget slidersView(BuildContext context, HomePageState state) {
           ],
         ),
       ),
-      Container(
-        child: DotsIndicator(
-          dotsCount: 3,
-          position: state.index.toDouble(),
-          decorator: DotsDecorator(
-            color: AppColors.primaryThreeElementText,
-            activeColor: AppColors.primaryElement,
-            size: const Size.square(5.0),
-            activeSize: const Size(17.0, 5.0),
-            activeShape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(5),
-            ),
+      DotsIndicator(
+        dotsCount: 3,
+        position: state.index.toDouble(),
+        decorator: DotsDecorator(
+          color: AppColors.primaryThreeElementText,
+          activeColor: AppColors.primaryElement,
+          size: const Size.square(5.0),
+          activeSize: const Size(17.0, 5.0),
+          activeShape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(5),
           ),
         ),
       )

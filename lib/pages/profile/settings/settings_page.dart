@@ -19,12 +19,10 @@ class _SettingPageState extends State<SettingPage> {
       body: SingleChildScrollView(
         child: BlocBuilder<SettingsBloc, SettingsState>(
           builder: (context, state) {
-            return Container(
-              child: Column(
-                children: <Widget>[
-                  settingsButton(context),
-                ],
-              ),
+            return Column(
+              children: <Widget>[
+                settingsButton(context),
+              ],
             );
           },
         ),

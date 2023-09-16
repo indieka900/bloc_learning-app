@@ -1,5 +1,7 @@
 
 
+// ignore_for_file: use_build_context_synchronously
+
 import '../../common/values/imports.dart';
 import 'bloc/sign_in_bloc.dart';
 
@@ -51,7 +53,7 @@ class SignInController {
             toastInfo(msg: 'No user with such credentials found');
             return;
           } else if (e.code == 'wrong-password') {
-            toastInfo(msg: 'No user with such credentials found');
+            toastInfo(msg: 'Wrong password check the password and try again');
             return;
           } else if (e.code == 'invalid-email') {
             toastInfo(msg: 'Invalid email');

@@ -6,9 +6,7 @@ import '../../../../common/widgets/base_text_widget.dart';
 AppBar buildAPpbar() {
   return AppBar(
     title: Container(
-      child: Container(
-        child: reusabletext('Settings')
-      ),
+      child: reusabletext('Settings')
     ),
   );
 }

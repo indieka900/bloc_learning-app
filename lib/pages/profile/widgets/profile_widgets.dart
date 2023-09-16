@@ -4,23 +4,21 @@ import '../../../common/widgets/base_text_widget.dart';
 
 AppBar buildappbar() {
   return AppBar(
-    title: Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(
-            width: 18.w,
-            height: 12.h,
-            child: Image.asset("assets/icons/menu.png"),
-          ),
-          reusabletext('Profile'),
-          SizedBox(
-            width: 24.w,
-            height: 24.h,
-            child: Image.asset("assets/icons/more-vertical.png"),
-          ),
-        ],
-      ),
+    title: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        SizedBox(
+          width: 18.w,
+          height: 12.h,
+          child: Image.asset("assets/icons/menu.png"),
+        ),
+        reusabletext('Profile'),
+        SizedBox(
+          width: 24.w,
+          height: 24.h,
+          child: Image.asset("assets/icons/more-vertical.png"),
+        ),
+      ],
     ),
   );
 }
