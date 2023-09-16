@@ -1,18 +1,13 @@
 import 'package:bloc_app/common/values/imports.dart';
 import 'package:bloc_app/pages/application/bloc/application_bloc.dart';
 
+import '../../../../common/widgets/base_text_widget.dart';
+
 AppBar buildAPpbar() {
   return AppBar(
     title: Container(
       child: Container(
-        child: Text(
-          "Settings",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 16.sp,
-            color: AppColors.primaryText,
-          ),
-        ),
+        child: reusabletext('Settings')
       ),
     ),
   );
