@@ -11,5 +11,7 @@ class AppRoutes {
   static const REGISTER = '/register';
   //Navigation homepage screen
   static const HOMEPAGE = '/homepage';
+  //Navigation settings screen
+  static const SETTINGS = '/settings';
 
 }

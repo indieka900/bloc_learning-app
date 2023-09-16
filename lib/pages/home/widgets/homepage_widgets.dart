@@ -1,4 +1,5 @@
 import 'package:bloc_app/common/values/imports.dart';
+import 'package:bloc_app/common/widgets/base_text_widget.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 
 AppBar buildappBar() {
@@ -194,9 +195,9 @@ Widget menuView() {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.end,
           children: <Widget>[
-            _reusableText('Choose your course'),
+            reusabletext('Choose your course'),
             GestureDetector(
-              child: _reusableText(
+              child: reusabletext(
                 'See all',
                 color: AppColors.primaryThreeElementText,
                 fontsize: 10,
@@ -227,23 +228,6 @@ Widget menuView() {
   );
 }
 
-Widget _reusableText(
-  String text, {
-  Color color = AppColors.primaryText,
-  FontWeight fw = FontWeight.bold,
-  int fontsize = 16,
-}) {
-  return Container(
-    child: Text(
-      text,
-      style: TextStyle(
-        color: color,
-        fontWeight: fw,
-        fontSize: fontsize.sp,
-      ),
-    ),
-  );
-}
 
 //for the menu button
 Widget _reusableMenuText(
@@ -259,7 +243,7 @@ Widget _reusableMenuText(
       borderRadius: BorderRadius.circular(7.w),
       color: bgColor,
     ),
-    child: _reusableText(
+    child: reusabletext(
       label,
       color: txtColor,
       fw: FontWeight.normal,
