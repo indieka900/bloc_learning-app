@@ -16,6 +16,9 @@ void _removeUser(BuildContext context) {
   Global.storageService.remove(
     AppConst.STORAGE_USER_TOKEN_KEY,
   );
+  Global.storageService.remove(
+    AppConst.STORAGE_USER_PROFILE_KEY,
+  );
   context.read<ApplicationBloc>().add(const TriggerAppEvent(0));
   Navigator.of(context).pushNamedAndRemoveUntil(
     AppRoutes.SIGN_IN,
