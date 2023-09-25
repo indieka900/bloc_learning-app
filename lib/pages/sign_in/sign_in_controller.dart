@@ -1,5 +1,7 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'dart:convert';
+
 import 'package:bloc_app/common/apis/user_api.dart';
 import 'package:bloc_app/common/entities/entities.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
@@ -56,15 +58,6 @@ class SignInController {
             print('My Email here is ${loginRequestEntity.email}');
 
             asyncPostAllData(loginRequestEntity);
-
-            // Global.storageService.setString(
-            //   AppConst.STORAGE_USER_TOKEN_KEY,
-            //   'value123',
-            // );
-            // Navigator.of(context).pushNamedAndRemoveUntil(
-            //   '/application',
-            //   (route) => false,
-            // );
           } else {}
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
@@ -91,5 +84,26 @@ class SignInController {
       dismissOnTap: true,
     );
     var result = await UserApi.login(loginRequestEntity: loginRequestEntity);
+    if (result.status == true) {
+      try {
+        Global.storageService.setString(
+          AppConst.STORAGE_USER_PROFILE_KEY,
+          jsonEncode(result.user!),
+        );
+        Global.storageService.setString(
+          AppConst.STORAGE_USER_TOKEN_KEY,
+          result.token!,
+        );
+        EasyLoading.dismiss();
+        Navigator.of(context).pushNamedAndRemoveUntil(
+          '/application',
+          (route) => false,
+        );
+      } catch (e) {
+        print('error while saving $e');
+        EasyLoading.dismiss();
+        toastInfo(msg: 'Unknown error occured');
+      }
+    }
   }
 }

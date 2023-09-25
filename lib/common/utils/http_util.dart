@@ -25,6 +25,6 @@ class HttpUtil {
       data: data,
       queryParameters: queryParams,
     );
-    return response;
+    return response.data;
   }
 }
