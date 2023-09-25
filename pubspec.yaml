@@ -9,12 +9,14 @@ environment:
 dependencies:
   # bloc: ^8.1.1
   cloud_firestore: ^4.5.1
+  dio: ^5.3.3
   dots_indicator: ^2.1.0
   firebase_auth: ^4.2.2
   firebase_core: ^2.9.0
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.2
+  flutter_easyloading: ^3.0.5
   flutter_screenutil: ^5.7.0
   fluttertoast: ^8.0.9
   intl: ^0.18.0
