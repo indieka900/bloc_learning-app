@@ -45,17 +45,15 @@ class SignInController {
             String? displayName = user.displayName;
             String? email = user.email;
             //String? id = user.uid;
-            //String? photoUrl = user.photoURL;
+            String? photoUrl = user.photoURL;
 
             LoginRequestEntity loginRequestEntity = LoginRequestEntity();
 
-            loginRequestEntity.avatar = 'photoUrl';
+            loginRequestEntity.avatar = photoUrl;
             loginRequestEntity.email = email;
             loginRequestEntity.fullName = displayName;
             //loginRequestEntity.id = id;
             loginRequestEntity.password = password;
-
-            print('My Email here is ${loginRequestEntity.email}');
 
             asyncPostAllData(loginRequestEntity);
           } else {}

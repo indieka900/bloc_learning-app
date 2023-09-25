@@ -1,5 +1,6 @@
 import 'package:bloc_app/common/values/imports.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
+import 'package:bloc_app/pages/home/home_controller.dart';
 import 'package:bloc_app/pages/home/widgets/homepage_widgets.dart';
 
 class Homepage extends StatefulWidget {
@@ -10,11 +11,21 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  late HomeController _homeController;
+
+  @override
+  void initState() {
+    _homeController = HomeController(context: context);
+    _homeController.init();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: buildappBar(),
+      appBar: buildappBar(
+          "${AppConst.SERVER_API_URL}${_homeController.userProfile.avatar}"),
       body: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
           return Container(
@@ -23,12 +34,15 @@ class _HomepageState extends State<Homepage> {
               slivers: [
                 SliverToBoxAdapter(
                   child: homePageText(
-                    'hello',
+                    'Hello',
                     color: AppColors.primaryThreeElementText,
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: homePageText('Joseph', top: 5),
+                  child: homePageText(
+                    _homeController.userProfile.fullName!,
+                    top: 5,
+                  ),
                 ),
                 SliverPadding(
                   padding: EdgeInsets.only(top: 20.h),

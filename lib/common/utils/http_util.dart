@@ -1,3 +1,4 @@
+import 'package:bloc_app/common/values/constants.dart';
 import 'package:dio/dio.dart';
 
 class HttpUtil {
@@ -8,7 +9,7 @@ class HttpUtil {
   late Dio dio;
   HttpUtil._internal() {
     BaseOptions options = BaseOptions(
-      baseUrl: "http://172.16.52.167:8000/",
+      baseUrl: AppConst.SERVER_API_URL,
       connectTimeout: const Duration(seconds: 5),
       receiveTimeout: const Duration(seconds: 5),
       headers: {},

@@ -2,7 +2,7 @@ import 'package:bloc_app/common/values/imports.dart';
 import 'package:bloc_app/common/widgets/base_text_widget.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 
-AppBar buildappBar() {
+AppBar buildappBar(String avatar) {
   return AppBar(
     title: Container(
       margin: EdgeInsets.symmetric(horizontal: 7.w),
@@ -16,12 +16,15 @@ AppBar buildappBar() {
           ),
           GestureDetector(
             child: Container(
+              //padding: EdgeInsets.symmetric(horizontal: 12.w),
               width: 40.w,
               height: 40.h,
-              decoration: const BoxDecoration(
-                  image: DecorationImage(
-                image: AssetImage('assets/icons/person.png'),
-              )),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.w),
+                image: DecorationImage(
+                  image: NetworkImage(avatar),
+                ),
+              ),
             ),
           )
         ],
@@ -225,7 +228,6 @@ Widget menuView() {
     ],
   );
 }
-
 
 //for the menu button
 Widget _reusableMenuText(

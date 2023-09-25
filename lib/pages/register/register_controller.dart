@@ -38,6 +38,9 @@ class RegisterController {
       if (credential.user != null) {
         await credential.user?.sendEmailVerification();
         await credential.user?.updateDisplayName(username);
+        String photoUrl =
+            "/media/uploads/myico.png";
+        await credential.user?.updatePhotoURL(photoUrl);
         toastInfo(msg: 'An email has been sent to $email please activate!');
         // ignore: use_build_context_synchronously
         Navigator.of(context).pop();
