@@ -1,3 +1,4 @@
+import 'package:bloc_app/common/entities/course.dart';
 import 'package:bloc_app/common/values/imports.dart';
 import 'package:bloc_app/common/widgets/base_text_widget.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
@@ -252,14 +253,14 @@ Widget _reusableMenuText(
   );
 }
 
-Widget courseGrid() {
+Widget courseGrid(CourseResponseEntity course) {
   return Container(
     padding: EdgeInsets.all(12.w),
     decoration: BoxDecoration(
       borderRadius: BorderRadius.circular(15.w),
-      image: const DecorationImage(
+      image: DecorationImage(
         fit: BoxFit.fill,
-        image: AssetImage('assets/icons/Image(1).png'),
+        image: NetworkImage("${AppConst.SERVER_API_URL}${course.img}"),
       ),
     ),
     child: Column(
@@ -267,7 +268,7 @@ Widget courseGrid() {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
         Text(
-          'Best course of IT and engineering',
+          course.name ?? '',
           maxLines: 1,
           overflow: TextOverflow.fade,
           textAlign: TextAlign.left,
@@ -280,7 +281,7 @@ Widget courseGrid() {
         ),
         SizedBox(height: 5.h),
         Text(
-          'Flutter best course',
+          course.description ?? '',
           maxLines: 1,
           overflow: TextOverflow.fade,
           textAlign: TextAlign.left,

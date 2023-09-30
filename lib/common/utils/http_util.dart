@@ -1,4 +1,5 @@
 import 'package:bloc_app/common/values/constants.dart';
+import 'package:bloc_app/global.dart';
 import 'package:dio/dio.dart';
 
 class HttpUtil {
@@ -19,13 +20,53 @@ class HttpUtil {
     dio = Dio(options);
   }
 
-  Future post(String path,
-      {dynamic data, Map<String, dynamic>? queryParams}) async {
+  Future post(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParams,
+    Options? options,
+  }) async {
+    Options requestOptions = options ?? Options();
+    requestOptions.headers = requestOptions.headers ?? {};
+    Map<String, dynamic>? auth = getAuthorization();
+    if (auth != null) {
+      requestOptions.headers!.addAll(auth);
+    }
     var response = await dio.post(
       path,
       data: data,
       queryParameters: queryParams,
+      options: requestOptions
     );
     return response.data;
+  }
+  Future get(
+    String path, {
+    // dynamic data,
+    // Map<String, dynamic>? queryParams,
+    Options? options, 
+  }) async {
+    Options requestOptions = options ?? Options();
+    requestOptions.headers = requestOptions.headers ?? {};
+    Map<String, dynamic>? auth = getAuthorization();
+    if (auth != null) {
+      requestOptions.headers!.addAll(auth);
+    }
+    var response = await dio.get(
+      path,
+      // data: data,
+      // queryParameters: queryParams,
+      options: requestOptions
+    );
+    return response.data;
+  }
+
+  Map<String, dynamic>? getAuthorization() {
+    var headers = <String, dynamic>{};
+    var accessToken = Global.storageService.getUserToken();
+    if (accessToken.isNotEmpty) {
+      headers['Authorization'] = 'Bearer $accessToken';
+    }
+    return headers;
   }
 }

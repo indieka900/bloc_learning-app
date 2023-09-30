@@ -34,6 +34,10 @@ class StorageService {
     return _prefernces.remove(key);
   }
 
+  String getUserToken() {
+    return _prefernces.getString(AppConst.STORAGE_USER_TOKEN_KEY) ?? "";
+  }
+
   User getUserProfile() {
     var profileOffline = _prefernces.getString(
           AppConst.STORAGE_USER_PROFILE_KEY,

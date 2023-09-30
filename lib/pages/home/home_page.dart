@@ -25,7 +25,8 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildappBar(
-          "${AppConst.SERVER_API_URL}${_homeController.userProfile.avatar}"),
+        "${AppConst.SERVER_API_URL}${_homeController.userProfile.avatar}",
+      ),
       body: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
           return Container(
@@ -57,11 +58,11 @@ class _HomepageState extends State<Homepage> {
                   ),
                   sliver: SliverGrid(
                     delegate: SliverChildBuilderDelegate(
-                      childCount: 4,
+                      childCount: state.courseItem.length,
                       (context, index) {
                         return GestureDetector(
                           onTap: () {},
-                          child: courseGrid(),
+                          child: courseGrid(state.courseItem[index]),
                         );
                       },
                     ),

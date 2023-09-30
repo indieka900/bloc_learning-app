@@ -9,3 +9,9 @@ class HomepageDots extends HomePageEvent {
   final int index;
   const HomepageDots(this.index) : super();
 }
+
+class HomePafeCourseItem extends HomePageEvent {
+  final List<CourseResponseEntity> courseItem;
+
+  const HomePafeCourseItem({required this.courseItem}) : super();
+}
