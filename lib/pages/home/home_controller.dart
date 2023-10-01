@@ -10,15 +10,25 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../global.dart';
 
 class HomeController {
-  final BuildContext context;
+  late BuildContext context;
 
-  HomeController({required this.context});
-  User userProfile = Global.storageService.getUserProfile();
+  static final HomeController _singleTone = HomeController._internal();
+  HomeController._internal();
+  User get userProfile => Global.storageService.getUserProfile();
+  factory HomeController({required BuildContext context}) {
+    _singleTone.context = context;
+    return _singleTone;
+  }
 
-  void init() async {
-    var result = await CourseApi.courseList();
-    // ignore: use_build_context_synchronously
-    context.read<HomePageBloc>().add(HomePafeCourseItem(courseItem: result));
-    print(result[0].name);
+  Future<void> init() async {
+    if (Global.storageService.getUserToken().isNotEmpty) {
+      var result = await CourseApi.courseList();
+      if (context.mounted) {
+        context.read<HomePageBloc>().add(
+              HomePafeCourseItem(courseItem: result),
+            );
+      }
+      //print(result[0].name);
+    }
   }
 }

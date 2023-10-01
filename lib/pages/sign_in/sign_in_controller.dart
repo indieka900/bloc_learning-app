@@ -1,9 +1,8 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'dart:convert';
 
 import 'package:bloc_app/common/apis/user_api.dart';
 import 'package:bloc_app/common/entities/entities.dart';
+import 'package:bloc_app/pages/home/home_controller.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../common/values/imports.dart';
@@ -56,6 +55,9 @@ class SignInController {
             loginRequestEntity.password = password;
 
             asyncPostAllData(loginRequestEntity);
+            if (context.mounted) {
+              await HomeController(context: context).init();
+            }
           } else {}
         } on FirebaseAuthException catch (e) {
           if (e.code == 'user-not-found') {
@@ -93,12 +95,13 @@ class SignInController {
           result.token!,
         );
         EasyLoading.dismiss();
-        Navigator.of(context).pushNamedAndRemoveUntil(
-          '/application',
-          (route) => false,
-        );
+        if (context.mounted) {
+          Navigator.of(context).pushNamedAndRemoveUntil(
+            '/application',
+            (route) => false,
+          );
+        }
       } catch (e) {
-        print('error while saving $e');
         EasyLoading.dismiss();
         toastInfo(msg: 'Unknown error occured');
       }

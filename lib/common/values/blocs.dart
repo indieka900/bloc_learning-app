@@ -1,4 +1,5 @@
 import 'package:bloc_app/pages/application/bloc/application_bloc.dart';
+import 'package:bloc_app/pages/course/bloc/course_detail_bloc.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 import 'package:bloc_app/pages/profile/settings/bloc/settings_bloc.dart';
 import 'package:bloc_app/pages/register/bloc/register_bloc.dart';
@@ -15,5 +16,6 @@ class AppBlocsProvider {
         BlocProvider(create: (context) => ApplicationBloc()),
         BlocProvider(create: (context) => HomePageBloc()),
         BlocProvider(create: (context) => SettingsBloc()),
+        BlocProvider(create: (context) => CourseDetailBloc()),
       ];
 }

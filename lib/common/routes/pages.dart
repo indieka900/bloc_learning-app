@@ -2,6 +2,7 @@
 
 // ignore_for_file: non_constant_identifier_names
 
+import 'package:bloc_app/pages/course/course_detail.dart';
 import 'package:bloc_app/pages/home/home_page.dart';
 import 'package:bloc_app/pages/profile/settings/settings_page.dart';
 
@@ -41,6 +42,11 @@ class AppPages {
         route: AppRoutes.SETTINGS,
         page: const SettingPage(),
         bloc: AppBlocsProvider.allBlocProviders[5],
+      ),
+      PageEntity(
+        route: AppRoutes.COURSEDETAIL,
+        page: const CourseDetail(),
+        bloc: AppBlocsProvider.allBlocProviders[6],
       ),
     ];
   }

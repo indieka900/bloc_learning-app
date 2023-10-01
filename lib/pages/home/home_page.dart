@@ -1,7 +1,15 @@
-import 'package:bloc_app/common/values/imports.dart';
+//import 'package:bloc_app/common/values/imports.dart';
+import 'package:bloc_app/common/values/colors.dart';
+import 'package:bloc_app/common/values/constants.dart';
 import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 import 'package:bloc_app/pages/home/home_controller.dart';
 import 'package:bloc_app/pages/home/widgets/homepage_widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../common/entities/user.dart';
+import '../../common/routes/names.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -11,13 +19,20 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  late HomeController _homeController;
+  late User userProfile;
 
   @override
   void initState() {
-    _homeController = HomeController(context: context);
-    _homeController.init();
+    // _homeController = HomeController(context: context);
+    // _homeController.init();
     super.initState();
+    userProfile = HomeController(context: context).userProfile;
+  }
+
+  @override
+  void didChangeDependencies() {
+    userProfile = HomeController(context: context).userProfile;
+    super.didChangeDependencies();
   }
 
   @override
@@ -25,10 +40,13 @@ class _HomepageState extends State<Homepage> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildappBar(
-        "${AppConst.SERVER_API_URL}${_homeController.userProfile.avatar}",
+        "${AppConst.SERVER_API_URL}${userProfile.avatar}",
       ),
       body: BlocBuilder<HomePageBloc, HomePageState>(
         builder: (context, state) {
+          if (state.courseItem.isEmpty) {
+            HomeController(context: context).init();
+          }
           return Container(
             margin: EdgeInsets.symmetric(vertical: 0, horizontal: 25.w),
             child: CustomScrollView(
@@ -41,7 +59,7 @@ class _HomepageState extends State<Homepage> {
                 ),
                 SliverToBoxAdapter(
                   child: homePageText(
-                    _homeController.userProfile.fullName!,
+                    userProfile.fullName!,
                     top: 5,
                   ),
                 ),
@@ -61,7 +79,14 @@ class _HomepageState extends State<Homepage> {
                       childCount: state.courseItem.length,
                       (context, index) {
                         return GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.of(context).pushNamed(
+                              AppRoutes.COURSEDETAIL,
+                              arguments: {
+                                "id": state.courseItem.elementAt(index).id,
+                              },
+                            );
+                          },
                           child: courseGrid(state.courseItem[index]),
                         );
                       },

@@ -1,24 +1,23 @@
 import 'package:bloc_app/common/values/imports.dart';
 import 'package:bloc_app/pages/application/bloc/application_bloc.dart';
+import 'package:bloc_app/pages/home/bloc/home_page_bloc.dart';
 
 import '../../../../common/widgets/base_text_widget.dart';
 
 AppBar buildAPpbar() {
   return AppBar(
-    title: Container(
-      child: reusabletext('Settings')
-    ),
+    title: Container(child: reusabletext('Settings')),
   );
 }
 
 void _removeUser(BuildContext context) {
-  
   Global.storageService.remove(
     AppConst.STORAGE_USER_TOKEN_KEY,
   );
   Global.storageService.remove(
     AppConst.STORAGE_USER_PROFILE_KEY,
   );
+  context.read<HomePageBloc>().add(const HomepageDots(0));
   context.read<ApplicationBloc>().add(const TriggerAppEvent(0));
   Navigator.of(context).pushNamedAndRemoveUntil(
     AppRoutes.SIGN_IN,
