@@ -4,7 +4,7 @@ Widget reusabletext(
   String text, {
   Color color = AppColors.primaryText,
   FontWeight fw = FontWeight.bold,
-  int fontsize = 16,
+  double fontsize = 16,
 }) {
   return Text(
     text,
